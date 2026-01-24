@@ -27,16 +27,16 @@ Reusable CMake modules for VertexNova projects.
 
 ## Usage
 
-Add as a submodule to your project:
+Add as a submodule inside your project's `cmake/` directory:
 
 ```bash
-git submodule add git@github.com:vertexnova/vnecmake.git libs/cmake
+git submodule add git@github.com:vertexnova/vnecmake.git cmake/vnecmake
 ```
 
 Then in your `CMakeLists.txt`:
 
 ```cmake
-list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/libs/cmake")
+list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/vnecmake/cmake")
 
 include(ProjectSetup)
 include(ProjectWarnings)
