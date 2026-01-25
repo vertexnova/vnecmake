@@ -34,7 +34,7 @@ git submodule add git@github.com:vertexnova/vnecmake.git cmake/vnecmake
 Then in your `CMakeLists.txt`:
 
 ```cmake
-list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/vnecmake/cmake")
+list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/vnecmake/modules")
 
 include(ProjectSetup)
 include(ProjectWarnings)
