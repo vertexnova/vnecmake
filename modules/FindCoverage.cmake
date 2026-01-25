@@ -11,6 +11,12 @@
 # FindCoverage.cmake
 # Module to handle coverage settings for different platforms
 
+# Include guard to prevent multiple inclusions
+if(VNE_COVERAGE_MODULE_INCLUDED)
+    return()
+endif()
+set(VNE_COVERAGE_MODULE_INCLUDED TRUE)
+
 option(ENABLE_COVERAGE "Enable coverage reporting" OFF)
 if(ENABLE_COVERAGE)
     find_program(LCOV_EXECUTABLE lcov)

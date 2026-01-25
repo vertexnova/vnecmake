@@ -8,6 +8,12 @@
 # Autodoc:   yes
 #==============================================================================
 
+# Include guard to prevent multiple inclusions
+if(VNE_CCACHE_MODULE_INCLUDED)
+    return()
+endif()
+set(VNE_CCACHE_MODULE_INCLUDED TRUE)
+
 # Option to enable or disable compiler cache
 option(ENABLE_CACHE "Enable cache if available" OFF)
 

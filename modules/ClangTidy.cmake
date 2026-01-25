@@ -8,6 +8,12 @@
 # Autodoc:   yes
 #==============================================================================
 
+# Include guard to prevent multiple inclusions
+if(VNE_CLANG_TIDY_MODULE_INCLUDED)
+    return()
+endif()
+set(VNE_CLANG_TIDY_MODULE_INCLUDED TRUE)
+
 # Enable or disable static analysis with clang-tidy
 option(ENABLE_CLANG_TIDY "Enable static analysis with clang-tidy" OFF)
 

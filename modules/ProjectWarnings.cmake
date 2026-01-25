@@ -8,6 +8,11 @@
 # Autodoc:   yes
 #==============================================================================
 
+# Include guard to prevent multiple inclusions
+if(VNE_PROJECT_WARNINGS_MODULE_INCLUDED)
+    return()
+endif()
+set(VNE_PROJECT_WARNINGS_MODULE_INCLUDED TRUE)
 
 # Function to set project-specific compiler warnings
 # Arguments:

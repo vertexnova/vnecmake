@@ -12,6 +12,12 @@
 # Autodoc:   yes
 #==============================================================================
 
+# Include guard to prevent multiple inclusions
+if(VNE_DOXYGEN_MODULE_INCLUDED)
+    return()
+endif()
+set(VNE_DOXYGEN_MODULE_INCLUDED TRUE)
+
 #==============================================================================
 # Function: enable_doxygen
 # Description: This function enables the building of Doxygen documentation

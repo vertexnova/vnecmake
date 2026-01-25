@@ -8,6 +8,12 @@
 # Autodoc:   yes
 #==============================================================================
 
+# Include guard to prevent multiple inclusions
+if(VNE_DEBUG_CONFIG_MODULE_INCLUDED)
+    return()
+endif()
+set(VNE_DEBUG_CONFIG_MODULE_INCLUDED TRUE)
+
 #==============================================================================
 # DebugConfig.cmake - Standardized Debug Configuration
 #==============================================================================

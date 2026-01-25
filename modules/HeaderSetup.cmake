@@ -8,6 +8,12 @@
 # Autodoc:   yes
 #==============================================================================
 
+# Include guard to prevent multiple inclusions
+if(VNE_HEADER_SETUP_MODULE_INCLUDED)
+    return()
+endif()
+set(VNE_HEADER_SETUP_MODULE_INCLUDED TRUE)
+
 #==============================================================================
 # HeaderSetup.cmake
 #==============================================================================

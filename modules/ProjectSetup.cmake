@@ -8,6 +8,12 @@
 # Autodoc:   yes
 #==============================================================================
 
+# Include guard to prevent multiple inclusions
+if(VNE_PROJECT_SETUP_MODULE_INCLUDED)
+    return()
+endif()
+set(VNE_PROJECT_SETUP_MODULE_INCLUDED TRUE)
+
 #==============================================================================
 # ProjectSetup.cmake
 #==============================================================================

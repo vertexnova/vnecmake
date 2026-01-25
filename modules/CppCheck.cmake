@@ -8,6 +8,12 @@
 # Autodoc:   yes
 #==============================================================================
 
+# Include guard to prevent multiple inclusions
+if(VNE_CPPCHECK_MODULE_INCLUDED)
+    return()
+endif()
+set(VNE_CPPCHECK_MODULE_INCLUDED TRUE)
+
 # Option to enable static analysis with cppcheck
 option(ENABLE_CPPCHECK "Enable static analysis with cppcheck" OFF)
 
