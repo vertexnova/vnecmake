@@ -1,6 +1,13 @@
 # VneCMake
 
-Reusable CMake modules for VertexNova projects.
+<p align="center">
+  <a href="https://github.com/vertexnova/vnecmake">
+    <img src="https://img.shields.io/badge/CMake-3.16%2B-blue.svg" alt="CMake"/>
+  </a>
+  <img src="https://img.shields.io/badge/license-Apache%202.0-green.svg" alt="License"/>
+</p>
+
+Shared CMake modules for VertexNova projects. Contains only common modules used by most libraries.
 
 ## Modules
 
@@ -12,18 +19,9 @@ Reusable CMake modules for VertexNova projects.
 | `ClangTidy.cmake` | Clang-Tidy static analysis integration |
 | `CppCheck.cmake` | Cppcheck static analysis integration |
 | `FindCoverage.cmake` | Code coverage configuration |
-| `Backends.cmake` | Graphics backend detection and configuration |
 | `Doxygen.cmake` | Documentation generation |
-| `Emscripten.cmake` | WebAssembly/Emscripten toolchain |
-| `GitSubmodule.cmake` | Git submodule management utilities |
-| `HeaderSetup.cmake` | Header file organization |
-| `Windows.cmake` | Windows-specific configuration |
-| `Swift.cmake` | Swift interoperability |
-| `Entt.cmake` | EnTT ECS library integration |
-| `FindNlohmannJson.cmake` | nlohmann/json library finder |
-| `FindQt.cmake` | Qt library finder |
-| `Zlib.cmake` | Zlib compression library |
 | `DebugConfig.cmake` | Debug build configuration |
+| `HeaderSetup.cmake` | Header file organization |
 
 ## Usage
 
@@ -43,6 +41,10 @@ include(ProjectWarnings)
 include(CCache)
 # ... include other modules as needed
 ```
+
+## Library-Specific Modules
+
+Modules for specific third-party libraries (EnTT, Qt, nlohmann/json, etc.) or platform-specific configurations (Emscripten, Swift, Windows) should be placed in each project's own `cmake/` directory, not in vnecmake.
 
 ## License
 
