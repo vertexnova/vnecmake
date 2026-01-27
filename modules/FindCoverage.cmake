@@ -58,20 +58,25 @@ if(ENABLE_COVERAGE)
     endif()
 
     if(LCOV_EXECUTABLE AND GENHTML_EXECUTABLE)
-        add_custom_target(clean_coverage
-            COMMAND ${LCOV_EXECUTABLE} --zerocounters --directory .
-            COMMENT "Cleaning coverage counters"
-            VERBATIM
-        )
-        add_custom_target(coverage
-            COMMAND ${CMAKE_CTEST_COMMAND} # Ensure tests are run
-            COMMAND ${LCOV_EXECUTABLE} --capture --directory . --output-file coverage.info
-            COMMAND ${LCOV_EXECUTABLE} --remove coverage.info '/usr/*' '*/tests/*' '*/3rd_party/*' '*/include/*' --output-file coverage_filtered.info
-            COMMAND ${GENHTML_EXECUTABLE} coverage_filtered.info --output-directory coverage_report
-            WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-            COMMENT "Generating code coverage report"
-            VERBATIM
-        )
+        # Only create targets if they don't already exist (e.g., from a submodule)
+        if(NOT TARGET clean_coverage)
+            add_custom_target(clean_coverage
+                COMMAND ${LCOV_EXECUTABLE} --zerocounters --directory .
+                COMMENT "Cleaning coverage counters"
+                VERBATIM
+            )
+        endif()
+        if(NOT TARGET coverage)
+            add_custom_target(coverage
+                COMMAND ${CMAKE_CTEST_COMMAND} # Ensure tests are run
+                COMMAND ${LCOV_EXECUTABLE} --capture --directory . --output-file coverage.info
+                COMMAND ${LCOV_EXECUTABLE} --remove coverage.info '/usr/*' '*/tests/*' '*/3rd_party/*' '*/include/*' --output-file coverage_filtered.info
+                COMMAND ${GENHTML_EXECUTABLE} coverage_filtered.info --output-directory coverage_report
+                WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+                COMMENT "Generating code coverage report"
+                VERBATIM
+            )
+        endif()
     else()
         message(WARNING "lcov and genhtml are required to generate coverage reports")
     endif()
